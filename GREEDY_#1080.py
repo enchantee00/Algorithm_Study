@@ -22,6 +22,7 @@ def Tipping(k, row, column):
             else:
                 k[i][s]= 0
 
+#바꿀 대상 탐색
 count= 0
 for i in range(a-2):
     for s in range(b-2):
