@@ -31,22 +31,22 @@ for i in range(N):
 
 
 def frequency_dic(a):
-    frequency= [0] * len(set(a))
+    frequency= [0] * len(set(a))    #[0,0,0] & [2,3,4] -> frequency, checked_lst에 있는 원소들 모두 같은 인덱스에 배열(서로 상응)
     checked_lst= []
 
-    s= 0
+    s= 0 
     for i in range(len(a)):
         if a[i] not in checked_lst:
             checked_lst.append(a[i])
-            frequency[s] += 1
-            s+= 1
-        else:
-            frequency[-1] += 1
+            frequency[s] += 1   #새로운 원소 들어올 때만 하나씩 올려준다
+            s+= 1   #s값 하나 올려주고 새로운 원소 들어올 때까지 대기
+        else:   
+            frequency[-1] += 1   #중복되는 원소, a[i]가 나왔을 떄 이미 lst.sort() 했기 때문에 [-1] 가능
 
     maxi= max(frequency)
     if frequency.count(maxi) > 1:
-        adcd= [num for idx, num in enumerate(checked_lst) if frequency[idx] == maxi]
-        return adcd[1]
+        adcd= [num for idx, num in enumerate(checked_lst) if frequency[idx] == maxi]   #frequency[idx] 최대일 떄의 cheked_lst[idx]의 값들의 집합
+        return adcd[1]  #lst.sort()에 의해 [1]이 2번째로 작은 값
     else:
         return checked_lst[frequency.index(maxi)]
 
