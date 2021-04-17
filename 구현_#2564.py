@@ -12,10 +12,10 @@ def Compare(donggeun, shop):
     num= shop[1] + donggeun[1]
     if donggeun[0] == 1:
         if shop[0] == 2:
-            if num > W:
+            if num > W: #num이 직사각현 가로 길이보다 크다면 기준점 반대방향으로 거리를 더하는 것이 더 값이 작음
                 ans= 2*W - num
                 count+= (ans + H)
-            else:
+            else: #반대상황일땐 기준점 쪽으로 더하는 것이 더 값이 
                 count+= (num + H)
         elif shop[0] == 3:
             count+= num
