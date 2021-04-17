@@ -5,8 +5,7 @@ shops= []
 for i in range(N):
     shops.append(list(map(int, sys.stdin.readline().split())))
 dong= list(map(int, sys.stdin.readline().split()))
-
-
+#shop, donggeun -> [0] == 동서남북 결정, [1] 기준점으로부터 떨어진 거리
 
 def Compare(donggeun, shop):
     global count
@@ -64,7 +63,7 @@ def Compare(donggeun, shop):
 count= 0
 for i in shops:
     if i[0] == dong[0]:
-        count+= abs(i[1] - dong[1])
+        count+= abs(i[1] - dong[1]) #절댓값의 차이 = 동근과 가게의 거리 차
     else:
         Compare(dong, i)
 
