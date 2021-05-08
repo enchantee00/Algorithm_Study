@@ -17,12 +17,14 @@ def func(array_chunk, array):
             else:
                 print('error')
                 return
-                
+
     if R_num % 2 == 0:
-        print(array)
+        ans= ''.join(str(array).split())
+        print(ans)
     else:
         array.reverse()
-        print(array)
+        ans= ''.join(str(array).split())
+        print(ans)
 
 
 T= int(sys.stdin.readline())
@@ -37,4 +39,3 @@ for i in range(T):
     array_chunk= [''.join(g) for _, g in groupby(p)]
 
     func(array_chunk, array)
-
