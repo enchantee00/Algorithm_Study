@@ -1,4 +1,5 @@
 #프로그래머스
+#시간 초과 or 메모리 초과 -> 수정 요망
 
 def solution(words, queries):
         
