@@ -24,7 +24,7 @@ for i in range(R):
             for s in range(3):
                 nx, ny = x + dx[0], y + dy[s]
                 if 0 <= nx < C and 0 <= ny < R and graph[ny][nx] == '.' and visited[ny][nx] == 0:
-                    heapq.heappush(queue, [seq, nx, ny])
+                    heapq.heappush(queue, [seq, nx, ny]) # 보통 이렇게 힙을 쓰진 않는다고 함
 
             if queue:
                 null, x, y = heapq.heappop(queue)
@@ -42,3 +42,20 @@ for i in range(R):
         pass
 
 print(ans)
+
+# Python3로는 시간초과, Pypy3로 통과
+-----------------------------------------------------------------------------------
+# <sol>
+
+def solve(i, j): 
+    if j == c-1: 
+        return True 
+    for d in dx: # DFS & 재귀 사용 - 정석풀이법
+        if 0<=i+d<r and table[i+d][j+1] == '.' and not visit[i+d][j+1]: 
+            visit[i+d][j+1] = True 
+            if solve(i+d, j+1): 
+                return True 
+    return False
+
+# 재귀 & DFS에 대한 공부 필요
+# 아직 왜 내 코드가 Python3에서 시간초과가 나왔는지는 의문
